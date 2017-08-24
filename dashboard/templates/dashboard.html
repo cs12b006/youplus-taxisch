@@ -1,0 +1,20 @@
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    $("#drefresh").click(function(){
+      $("#entries").load("/dashboard/selected/");
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <button id="drefresh">REFRESH</button>
+  <div id="entries"></div>
+</body>
+
+</html>

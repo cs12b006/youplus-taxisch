@@ -1,0 +1,20 @@
+
+<table>
+  <tr>
+    <th>Request ID</th>
+    <th>Customer ID</th>
+    <th>Time Elapsed</th>
+    <th>Status</th>
+    <th>Driver</th>
+  </tr>
+  
+  {% for item in a %}
+    <tr>
+      <td>{{item.rid}}</td>
+      <td>{{item.cid}}</td>
+      <td>{% if item.tmin %} {{item.tmin}} min {% endif %} {{item.tsec}} sec</td>
+      <td>{{item.stat}}</td>
+      <td>{{item.driver}}</td>
+    </tr>
+  {% endfor %}
+</table>

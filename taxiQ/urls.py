@@ -31,6 +31,6 @@ urlpatterns = [
     url(r'^customerapp/', raise_request, name="customer_request"),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^driver/', include('driverapp.urls')),
-    url(r'^request/', include('dashboard.urls')),
+    url(r'^dashboard/', include('dashboard.urls')),
     url(r'^driverapp/(?P<driver_id>[0-9]+)/$', driver_view, name="driver_view"),
 ]

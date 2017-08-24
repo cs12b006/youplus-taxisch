@@ -4,6 +4,8 @@ from rest_framework import serializers, viewsets
 from dashboard.models import Request
 from datetime import datetime, timezone
 from django.http import JsonResponse
+from time import sleep
+from threading import Thread
 
 class DriverSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -58,6 +60,14 @@ def completed_driver_req(request, driver_id):
             "ptmin": pick_t[0], "ptsec": pick_t[1], "ctmin": comp_t[0], "ctsec": comp_t[1]})
     return render(request, 'driver-snippet.html', {"a": a})
 
+# changes the ride to completed after 5 mins
+def complete_ride(r_id):
+    sleep(5*60)
+    r = Request.objects.filter(pk=r_id).first()
+    r.status = 2
+    r.complete_time = datetime.now(timezone.utc)
+    r.save()
+
 def select_req(request):
     if request.method == "POST":
         d, req = request.POST.get("d",None), request.POST.get("r",None)
@@ -73,6 +83,8 @@ def select_req(request):
         rs.status = 1
         rs.picked_time = datetime.now(timezone.utc)
         #simulate ride ending 5 min from now
+        thread2 = Thread(target = complete_ride, args = (req, ))
+        thread2.start()
         rs.save()
         return JsonResponse({'success':True, 'picked': False})
     return JsonResponse({'success':False})

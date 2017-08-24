@@ -2,7 +2,7 @@
   <div>Req.Id:{{item.rid}}  Cust.Id:{{item.cid}}
     </br>Request: {{item.rtmin}} min {{item.rtsec}} secs ago 
     {% if item.ptmin or item.ptsec %}
-      </br>Pick up: 
+      </br>Picked up: 
       {% if item.ptmin %} {{item.ptmin}} min {% endif %}
       {% if item.ptsec %} {{item.ptsec}} secs {% endif %} ago 
     {% endif %}
