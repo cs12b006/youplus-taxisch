@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from customerapp.views import raise_request, CustViewSet
 from dashboard.views import ReqViewSet
-from driverapp.views import DriverViewSet
+from driverapp.views import DriverViewSet, driver_view
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -29,5 +29,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
     url(r'^customerapp/', raise_request, name="customer_request"),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^driver/', include('driverapp.urls')),
+    url(r'^request/', include('dashboard.urls')),
+    url(r'^driverapp/(?P<driver_id>[0-9]+)/$', driver_view, name="driver_view"),
 ]

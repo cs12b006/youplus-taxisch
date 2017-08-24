@@ -1,0 +1,37 @@
+
+<script>
+$(document).ready(function(){
+
+  $( "#dialog" ).dialog({
+    autoOpen: false
+  });
+  
+  $('button').click(function() {
+    var driver = {{did}};
+    var req = $(this)[0].id;
+    if($(this)[0].name!="dd")
+      return false;
+    var posting = $.post( "/driver/selected/", { d: driver, r: req, csrfmiddlewaretoken: '{{ csrf_token }}' } );
+    posting.done(function( data ) {
+      var text = "Please refresh again.";
+      if(!data.success)
+        text = "Some error occured. " + text;
+      else if(data.picked)
+        text = "Some other driver picked up. " +text;
+      else
+        text = "Successfully picked up. " +text;
+      $("#dialog").html(text);
+      $("#dialog").dialog('open');
+    });
+    return false;
+  });
+})
+</script>
+
+<div id="dialog" style="display:none"></div> 
+{% for item in a %}
+  <div>Req.Id:{{item.rid}}  Cust.Id:{{item.cid}}
+    </br>{{item.tmin}} min {{item.tsec}} secs ago
+    </br><button name="dd" id="{{item.rid}}">Select</button>
+  </div>
+{% endfor %}

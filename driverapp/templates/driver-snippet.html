@@ -1,0 +1,15 @@
+{% for item in a %}
+  <div>Req.Id:{{item.rid}}  Cust.Id:{{item.cid}}
+    </br>Request: {{item.rtmin}} min {{item.rtsec}} secs ago 
+    {% if item.ptmin or item.ptsec %}
+      </br>Pick up: 
+      {% if item.ptmin %} {{item.ptmin}} min {% endif %}
+      {% if item.ptsec %} {{item.ptsec}} secs {% endif %} ago 
+    {% endif %}
+    {% if item.ctmin or item.ctsec %}
+      </br>Complete:
+      {% if item.ctmin %} {{item.ctmin}} min {% endif %}
+      {% if item.ctsec %} {{item.ctsec}} secs {% endif %} ago
+    {% endif %}
+  </div>
+{% endfor %}

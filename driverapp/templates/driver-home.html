@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+  <script>
+  $(document).ready(function(){
+    $("#refresh").click(function(){
+      var og_url = $("#did").text() + "/";
+      $("#div1").load("/driver/waiting/" + og_url);
+      $("#div2").load("/driver/ongoing/" + og_url);
+      $("#div3").load("/driver/completed/" + og_url);
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <h1>Driver app</h1> Driver ID: <div id="did">{{did}}</div>
+  <button id="refresh">REFRESH</button>
+  <table>
+    <tr>
+      <th>Waiting</th>
+      <th>Ongoing</th>
+      <th>Complete</th>
+    </tr>
+    <tr>
+      <td><div id="div1"></div></td>
+      <td><div id="div2"></div></td>
+      <td><div id="div3"></div></td>
+    </tr>
+  </table>
+</body>
+
+</html>

@@ -7,6 +7,8 @@ class Request(models.Model):
     status = models.PositiveSmallIntegerField(default=0)
     location = models.CharField(max_length=100)
     req_time = models.DateTimeField(auto_now_add=True)
+    picked_time = models.DateTimeField(null=True, blank=True)
+    complete_time = models.DateTimeField(null=True, blank=True)
     raised_by = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
     picked_by = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
 
