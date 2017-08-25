@@ -1,0 +1,1 @@
+web: gunicorn taxiQ.wsgi --log-file -

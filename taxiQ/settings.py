@@ -81,12 +81,9 @@ WSGI_APPLICATION = 'taxiQ.wsgi.application'
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'taxiq',
-        'USER': 'graname',
-        'PASSWORD': 'a',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 

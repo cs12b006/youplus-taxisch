@@ -1,0 +1,8 @@
+Django==1.11.3
+psycopg2==2.7.1
+pytz==2017.2
+dj-database-url==0.4.2
+gunicorn==19.7.1
+python-decouple==3.0
+djangorestframework==3.6.4
+drf-generators==0.3.0
