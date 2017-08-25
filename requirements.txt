@@ -6,3 +6,4 @@ gunicorn==19.7.1
 python-decouple==3.0
 djangorestframework==3.6.4
 drf-generators==0.3.0
+whitenoise==3.2
