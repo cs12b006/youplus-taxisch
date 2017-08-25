@@ -1,0 +1,52 @@
+button {
+	display: inline-block;
+	color: #666;
+	background-color: #eee;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 3px;
+}
+
+button:hover {
+		background-color: #e3e3e3;
+		border-color: rgba(0,0,0,0.5);
+}
+	
+button:active {
+    background-color: #CCC;
+    border-color: rgba(0,0,0,0.9);
+}
+
+table {
+    table-layout: fixed;
+    border: 2px solid rgba(0,0,0,0.5);
+    width: 96%;
+    border-radius: 5px;
+    margin: 2%;
+    background-color: #ddd;
+}
+
+th, td {
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+tr th {
+    height: 50px;
+    border-bottom: 10px solid rgba(0,0,0,0.3);
+}
+tr:last-child  td{
+    border-bottom: None;
+}
+
+.slot {
+    border: 2px solid rgba(0,0,0,0.5);
+    margin: 2% 5%;
+    border-radius: 20px;
+    line-height: 200%;
+    background-color: #F1F1CC;
+    font-family: monospace;
+}

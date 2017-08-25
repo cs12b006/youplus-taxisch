@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 <div id="dialog" style="display:none"></div> 
 {% for item in a %}
-  <div>Req.Id:{{item.rid}}  Cust.Id:{{item.cid}}
+  <div class="slot">Req.Id:{{item.rid}}   Cust.Id:{{item.cid}}
     </br>{{item.tmin}} min {{item.tsec}} secs ago
     </br><button name="dd" id="{{item.rid}}">Select</button>
   </div>
